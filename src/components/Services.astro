@@ -1,0 +1,64 @@
+---
+const services = [
+	{
+		title: "Business Websites",
+		price: "Starting from $300",
+		description: "Professional websites for businesses that need a clear online presence. Good for service providers, consultants, tuition classes, clinics, small companies, restaurants, local businesses, and personal brands.",
+		features: "home page, services or products section, about section, contact details, location map, inquiry form or WhatsApp link, mobile-friendly layout, basic SEO structure, fast static deployment"
+	},
+	{
+		title: "Landing Pages",
+		price: "Starting from $150",
+		description: "Focused one-page websites designed to explain one offer and guide visitors toward one action. Good for products, courses, events, campaigns, waiting lists, startup ideas, and service promotions.",
+		features: "hero section, offer explanation, features or benefits, pricing or package section, FAQ, call-to-action button, inquiry form or signup form, fast mobile-friendly design"
+	},
+	{
+		title: "Admin Panels & Dashboards",
+		price: "Starting from $600",
+		description: "Custom internal systems for managing business operations. Good for businesses that need to manage users, bookings, orders, products, inventory, content, reports, or internal records.",
+		features: "login/authentication, admin dashboard, tables and filters, create/edit/delete workflows, role-based access where needed, database integration, reports or exports, backend API integration, deployment and handover notes"
+	},
+	{
+		title: "Web / Mobile App First Versions",
+		price: "Starting from $900",
+		description: "The first usable version of a web or mobile app with the essential features needed to launch, test, or operate the idea. Good for startups, founders, small teams, or businesses that want to test a product before investing in a larger full-scale system.",
+		features: "user accounts, core app screens, backend API, database storage, admin panel, forms and workflows, file upload where needed, basic notifications, deployment support"
+	},
+	{
+		title: "Desktop & Internal Tools",
+		price: "Starting from $600",
+		description: "Focused desktop applications or internal tools for specific operational workflows. Good for file processing, data entry, reporting, local databases, media tools, offline workflows, or technical utilities where a normal website is not the right fit.",
+		features: "Linux support included by default, Windows and macOS builds available depending on scope, offline data handling"
+	}
+];
+---
+
+<section id="services">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<span class="eyebrow">Services &amp; Pricing</span>
+			<h2>Straightforward work, explained in plain terms</h2>
+			<p>No technical back-and-forth needed. Tell me what your business does and what you want people to be able to do on your site — I'll handle the rest.</p>
+		</div>
+
+		<div class="menu reveal">
+			{services.map(service => (
+				<div class="menu-row">
+					<div>
+						<h3>{service.title}</h3>
+						<span class="tag-pill">{service.price}</span>
+					</div>
+					<div>
+						<p>{service.description}</p>
+						<p style="margin-top: 8px; font-size: 0.88rem; color: var(--ink-soft);">
+							<strong>Typical features:</strong> {service.features}.
+						</p>
+					</div>
+					<div style="justify-self: end; align-self: center;">
+						<a href="#contact" class="work-link">Inquire →</a>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

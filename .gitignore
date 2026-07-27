@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Astro and build output
+.astro/
+dist/
+
+# Test and coverage output
+coverage/
+.nyc_output/
+
+# Local caches and temporary files
+.cache/
+.temp/
+tmp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables and local overrides
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor and local agent configuration
+.vscode/
+.idea/
+.agents/
+.codex/
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+
+# Local deployment state
+.vercel/
+.netlify/
+
+# Timestamped duplicate image exports
+public/images/*_[0-9]*.png

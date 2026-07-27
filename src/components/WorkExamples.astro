@@ -1,0 +1,62 @@
+---
+const demos = [
+	{
+		title: "Business Website Demo",
+		description: "A mobile-friendly business website demo showing services, contact details, location, and customer inquiry flow.",
+		goodFor: "service providers, clinics, restaurants, consultants, local businesses.",
+		image: "/images/business-website-demo.png"
+	},
+	{
+		title: "Landing Page Demo",
+		description: "A focused one-page landing page for a course, product, service, event, or campaign.",
+		goodFor: "course launches, startup ideas, personal brands, online programs, service promotions.",
+		image: "/images/business-website-demo.png"
+	},
+	{
+		title: "Admin Dashboard Demo",
+		description: "A sample internal dashboard for managing records, users, orders, products, and business data.",
+		goodFor: "businesses that need to move beyond spreadsheets or manual records.",
+		image: "/images/admin-dashboard-demo.png"
+	},
+	{
+		title: "Web App Demo",
+		description: "A first-version web application demo showing user workflows, database-backed features, forms, and admin-side management.",
+		goodFor: "startup MVPs, booking systems, order systems, customer portals, internal tools.",
+		image: "/images/mobile-app-demo.png"
+	},
+	{
+		title: "Desktop / Internal Tool Demo",
+		description: "A focused desktop or internal-tool demo for file processing, reporting, data handling, or offline workflows.",
+		goodFor: "businesses or teams that need a local tool instead of a public website.",
+		image: "/images/mobile-app-demo.png"
+	}
+];
+---
+
+<section id="work">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<span class="eyebrow">Work Examples</span>
+			<h2>Realistic demo projects showing what I can build</h2>
+			<p>These examples are demonstration projects, not fake client claims. They show the type of design, workflow, and software quality I can deliver.</p>
+		</div>
+
+		<div class="work-grid">
+			{demos.map(demo => (
+				<div class="work-card reveal">
+					<div class="work-frame">
+						<img src={demo.image} alt={demo.title} loading="lazy" />
+					</div>
+					<div class="work-body">
+						<h3>{demo.title}</h3>
+						<p>{demo.description}</p>
+						<p style="margin-bottom: 16px; font-size: 0.88rem; color: var(--ink-soft);">
+							<strong>Good for:</strong> {demo.goodFor}
+						</p>
+						<a href="#contact" class="work-link">Inquire about a similar build →</a>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

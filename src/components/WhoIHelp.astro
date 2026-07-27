@@ -1,0 +1,35 @@
+---
+const checklistItems = [
+	"you need a professional website that explains your business clearly",
+	"you need a landing page for one product, service, course, or campaign",
+	"spreadsheets, WhatsApp messages, or manual records are no longer enough",
+	"you need an admin panel to manage users, orders, bookings, products, records, or content",
+	"you need a first working version of a web or mobile app",
+	"you need a focused internal tool for staff or operations",
+	"you want the project properly scoped, documented, deployed, and handed over"
+];
+---
+
+<section id="who-i-help">
+	<div class="wrap about">
+		<div class="about-text reveal">
+			<span class="eyebrow">Who I Help</span>
+			<h2>Practical software without unnecessary complexity.</h2>
+			<p>
+				I work with small businesses, founders, service providers, and teams that need clear, reliable digital tools built around real workflows.
+			</p>
+		</div>
+
+		<div class="panel-card reveal">
+			<h3 style="font-size: 1.15rem; color: var(--blue-deep); margin-bottom: 16px;">This is a good fit if:</h3>
+			<ul class="check-list">
+				{checklistItems.map(item => (
+					<li>
+						<span class="mark">✓</span>
+						<span>{item}</span>
+					</li>
+				))}
+			</ul>
+		</div>
+	</div>
+</section>

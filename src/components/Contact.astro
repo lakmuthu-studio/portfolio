@@ -1,0 +1,184 @@
+---
+const usefulDetails = [
+	"project type",
+	"business type and industry",
+	"target deadline",
+	"preferred starting point",
+	"must-have features",
+	"existing website or app link, if any",
+	"additional notes before replying"
+];
+---
+
+<section id="contact">
+	<div class="wrap">
+		<div class="contact reveal">
+			<div class="contact-copy">
+				<span class="contact-eyebrow">Start a project</span>
+				<h2>Have something in mind?</h2>
+				<p class="contact-intro">
+					Tell me a bit about your business and what features you need — I'll get back to you with a straightforward idea of cost, scope, and timeline, no obligation.
+				</p>
+				<div class="contact-ctas">
+					<a href="mailto:contact@example.com" class="btn btn-primary">Email me →</a>
+					<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn →</a>
+					<a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Message on WhatsApp →</a>
+				</div>
+			</div>
+
+			<!-- Project Inquiry Form Container -->
+			<div class="quote-form-wrapper">
+				<div class="quote-form-header">
+					<div>
+						<span class="form-kicker">Project details</span>
+						<h3>Project Inquiry Form</h3>
+						<span class="required-note"><span aria-hidden="true">*</span> Required fields</span>
+					</div>
+					<p>Fill in the details below and I’ll format them into an email inquiry for you.</p>
+				</div>
+
+				<form id="quote-form" class="quote-form" novalidate>
+					<div class="form-group">
+						<label for="project-type">Project Type</label>
+						<select id="project-type" required>
+							<option value="">Select one...</option>
+							<option value="Landing Page">Landing Page</option>
+							<option value="Business Website">Business Website</option>
+							<option value="Admin Panel / Dashboard">Admin Panel / Dashboard</option>
+							<option value="Web App First Version">Web App First Version</option>
+							<option value="Mobile App First Version">Mobile App First Version</option>
+							<option value="Desktop / Internal Tool">Desktop / Internal Tool</option>
+							<option value="Existing Project Fix or Continuation">Existing Project Fix or Continuation</option>
+							<option value="Not Sure Yet">Not Sure Yet</option>
+						</select>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group">
+							<label for="business-type">Business Type</label>
+							<input type="text" id="business-type" placeholder="e.g. restaurant, clinic, tuition class" required />
+						</div>
+						<div class="form-group">
+							<label for="deadline">Target Deadline</label>
+							<input type="text" id="deadline" placeholder="e.g. 2 weeks, 1 month, flexible" />
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group">
+							<label for="starting-point">Preferred Starting Point</label>
+							<select id="starting-point" required>
+								<option value="">Select one...</option>
+								<option value="Basic first version">Basic first version</option>
+								<option value="Standard business-ready version">Standard business-ready version</option>
+								<option value="Larger custom system">Larger custom system</option>
+								<option value="Not sure yet">Not sure yet</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="existing-link">Existing Website or App (Optional)</label>
+							<input type="url" id="existing-link" placeholder="https://your-existing-site.com" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="features">Must-Have Features</label>
+						<textarea id="features" rows="3" placeholder="Describe core features, workflows, pages, screens, forms, dashboards, or existing problems..." required></textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="notes">Notes (Optional)</label>
+						<textarea id="notes" rows="2" placeholder="Add anything else I should know before replying..."></textarea>
+					</div>
+
+					<p class="form-disclaimer">
+						Please review the starting prices before sending an inquiry. Projects below the listed starting prices may not be a good fit unless the scope is very small.
+					</p>
+
+					<button type="submit" class="btn btn-primary form-submit-btn">
+						Generate Email Inquiry →
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	const form = document.getElementById('quote-form') as HTMLFormElement;
+	if (form) {
+		const fields = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('input, select, textarea'));
+
+		const clearError = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+			const group = field.closest('.form-group');
+			group?.classList.remove('has-error');
+			group?.querySelector('.field-error')?.remove();
+			field.removeAttribute('aria-invalid');
+			field.removeAttribute('aria-describedby');
+		};
+
+		const showError = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+			const group = field.closest('.form-group');
+			if (!group) return;
+
+			clearError(field);
+			const label = group.querySelector('label')?.textContent?.trim() || 'This field';
+			const message = document.createElement('p');
+			const messageId = `${field.id}-error`;
+
+			message.id = messageId;
+			message.className = 'field-error';
+			message.textContent = field.validity.typeMismatch
+				? `Enter a valid ${label.toLowerCase()}.`
+				: field instanceof HTMLSelectElement
+					? `Please select ${label.toLowerCase()}.`
+					: `${label} is required.`;
+
+			group.classList.add('has-error');
+			group.appendChild(message);
+			field.setAttribute('aria-invalid', 'true');
+			field.setAttribute('aria-describedby', messageId);
+		};
+
+		fields.forEach((field) => {
+			field.addEventListener('input', () => clearError(field));
+			field.addEventListener('change', () => clearError(field));
+		});
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const invalidFields = fields.filter(field => !field.checkValidity());
+
+			fields.forEach(clearError);
+			invalidFields.forEach(showError);
+
+			if (invalidFields.length) {
+				const firstInvalid = invalidFields[0];
+				firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				window.setTimeout(() => firstInvalid.focus({ preventScroll: true }), 350);
+				return;
+			}
+
+			const projectType = (document.getElementById('project-type') as HTMLSelectElement).value;
+			const businessType = (document.getElementById('business-type') as HTMLInputElement).value;
+			const deadline = (document.getElementById('deadline') as HTMLInputElement).value;
+			const startingPoint = (document.getElementById('starting-point') as HTMLSelectElement).value;
+			const existingLink = (document.getElementById('existing-link') as HTMLInputElement).value;
+			const features = (document.getElementById('features') as HTMLTextAreaElement).value;
+			const notes = (document.getElementById('notes') as HTMLTextAreaElement).value;
+
+			const body = `Hi,\n\nI would like to inquire about a project with Lakmuthu Studio.\n\n` +
+				`- Project Type: ${projectType}\n` +
+				`- Business Type: ${businessType}\n` +
+				`- Target Deadline: ${deadline || 'Flexible'}\n` +
+				`- Preferred Starting Point: ${startingPoint}\n` +
+				(existingLink ? `- Existing Site/App: ${existingLink}\n` : '') +
+				`\nMust-Have Features:\n${features}\n` +
+				(notes ? `\nAdditional Notes:\n${notes}\n` : '') +
+				`\nThanks!`;
+
+			const subject = `Project Inquiry: ${projectType} (${businessType})`;
+			window.location.href = `mailto:contact@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+		});
+	}
+</script>
