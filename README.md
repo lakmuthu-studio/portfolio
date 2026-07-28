@@ -1,43 +1,82 @@
-# Astro Starter Kit: Minimal
+# Lakmuthu Studio Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+The official website for Lakmuthu Studio, the independent software development practice of Kaveen Lakmuthu.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site presents web, mobile, dashboard, and internal-tool development services for businesses, founders, and service providers. It includes service descriptions, starting prices, project examples, working policies, frequently asked questions, and a structured project inquiry form.
 
-## 🚀 Project Structure
+## Technology
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Astro](https://astro.build) for static site generation
+- TypeScript for client-side form behavior
+- Component-based Astro templates
+- Custom responsive CSS without a UI framework
+
+## Project Structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+public/
+├── images/              Portfolio and demonstration images
+├── favicon.ico
+└── favicon.svg
+
+src/
+├── components/          Individual page sections
+├── layouts/             Shared document layout and metadata
+├── pages/               Site routes
+└── styles/              Global design system and responsive styles
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Local Development
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Requirements:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Node.js 22.12 or newer
+- npm
 
-## 🧞 Commands
+Install the dependencies:
 
-All commands are run from the root of the project, from a terminal:
+```sh
+npm install
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Start the Astro development server in background mode:
 
-## 👀 Want to learn more?
+```sh
+npx astro dev --background
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Manage the background server:
+
+```sh
+npx astro dev status
+npx astro dev logs
+npx astro dev stop
+```
+
+## Production Build
+
+Create an optimized static production build:
+
+```sh
+npm run build
+```
+
+The generated site is written to `dist/`.
+
+Preview the production build locally:
+
+```sh
+npm run preview
+```
+
+## Site Content
+
+The primary page is assembled in `src/pages/index.astro`. Each major section is maintained as a separate component in `src/components/`.
+
+Before deploying, replace the placeholder email address, LinkedIn URL, and WhatsApp URL in `src/components/Contact.astro` with the correct business contact details.
+
+## Copyright
+
+Copyright © 2026 Kaveen Lakmuthu. All rights reserved.
+
+This repository contains the source code and content for the Lakmuthu Studio website. The code, design, copy, layout, and assets are not licensed for reuse, copying, redistribution, or derivative works without written permission.
