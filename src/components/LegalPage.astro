@@ -1,0 +1,24 @@
+---
+interface Props {
+	title: string;
+	updated: string;
+}
+
+const { title, updated } = Astro.props;
+---
+
+<section class="legal-page">
+	<div class="wrap legal-shell">
+		<header class="legal-header">
+			<span class="eyebrow">Lakmuthu Studio</span>
+			<h1>{title}</h1>
+			<p class="legal-updated">Last updated: {updated}</p>
+		</header>
+
+		<article class="legal-content">
+			<slot />
+		</article>
+
+		<a class="btn btn-ghost legal-back" href="/">← Back to home</a>
+	</div>
+</section>
