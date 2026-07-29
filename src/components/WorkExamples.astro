@@ -8,9 +8,10 @@ const demos = [
 	},
 	{
 		title: "Landing Page Demo",
-		description: "A focused one-page landing page for a course, product, service, event, or campaign.",
-		goodFor: "course launches, startup ideas, personal brands, online programs, service promotions.",
-		image: "/images/business-website-demo.png"
+		description: "A polished online-course landing page that explains one offer clearly and guides visitors toward enrollment.",
+		goodFor: "course launches, online programs, workshops, and education brands.",
+		image: "/images/landing_demo.png",
+		caseStudy: "/work/landing-page-demo/"
 	},
 	{
 		title: "Admin Dashboard Demo",
@@ -42,7 +43,21 @@ const demos = [
 		</div>
 
 		<div class="work-grid">
-			{demos.map(demo => (
+			{demos.map(demo => demo.caseStudy ? (
+				<a class="work-card work-card-link reveal" href={demo.caseStudy} aria-label={`View the ${demo.title} case study`}>
+					<div class="work-frame">
+						<img src={demo.image} alt="" loading="lazy" />
+					</div>
+					<div class="work-body">
+						<h3>{demo.title}</h3>
+						<p>{demo.description}</p>
+						<p style="margin-bottom: 16px; font-size: 0.88rem; color: var(--ink-soft);">
+							<strong>Good for:</strong> {demo.goodFor}
+						</p>
+						<span class="work-link">View project details →</span>
+					</div>
+				</a>
+			) : (
 				<div class="work-card reveal">
 					<div class="work-frame">
 						<img src={demo.image} alt={demo.title} loading="lazy" />

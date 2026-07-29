@@ -1,0 +1,496 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const liveDemoUrl = '/demo/landing/live/';
+---
+
+<Layout
+	title="Landing Page Design & Development Demo | Lakmuthu Studio"
+	description="A demonstration of the focused, responsive marketing landing pages Lakmuthu Studio can design and build."
+	image="/images/landing_demo.png"
+>
+	<section class="project-hero">
+		<div class="wrap project-hero-grid">
+			<div>
+				<a class="back-link" href="/#work">← Back to work examples</a>
+				<span class="eyebrow">Landing page demo</span>
+				<h1>A polished landing page built to explain one offer clearly.</h1>
+				<p class="project-lede">
+					This demo shows the kind of complete marketing page I can design and build:
+					clear messaging, strong visual hierarchy, responsive layouts, purposeful
+					interaction, and calls to action that guide visitors naturally.
+				</p>
+				<div class="project-actions">
+					<a class="btn btn-primary" href={liveDemoUrl} target="_blank" rel="noopener noreferrer">View live demo <span aria-hidden="true">↗</span></a>
+					<a class="btn btn-ghost" href="/#contact">Discuss a similar project</a>
+				</div>
+				<p class="demo-note">The course is fictional and is used only as realistic sample content for the landing-page build.</p>
+			</div>
+
+			<dl class="project-facts" aria-label="Project details">
+				<div><dt>Deliverable</dt><dd>Complete marketing page</dd></div>
+				<div><dt>Capabilities</dt><dd>Design and front-end development</dd></div>
+				<div><dt>Page strategy</dt><dd>Single-offer conversion journey</dd></div>
+				<div><dt>Experience</dt><dd>Responsive and interactive</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="project-showcase">
+		<div class="wrap">
+			<div class="browser-frame">
+				<div class="browser-bar" aria-hidden="true">
+					<span></span><span></span><span></span>
+					<div>proofandpractice.demo</div>
+				</div>
+				<button class="preview-trigger" type="button" aria-label="Open a clean full-screen view of the landing page">
+					<img
+						src="/images/landing_demo.png"
+						alt="Desktop view of the Proof and Practice online-course landing page"
+						width="1900"
+						height="965"
+					/>
+					<span class="preview-hint">View clean preview <span aria-hidden="true">↗</span></span>
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<dialog class="preview-dialog" aria-label="Landing page clean preview">
+		<div class="preview-toolbar">
+			<p>Landing page demo</p>
+			<button class="preview-close" type="button" aria-label="Close preview">Close <span aria-hidden="true">×</span></button>
+		</div>
+		<div class="preview-canvas">
+			<img
+				src="/images/landing_demo.png"
+				alt="Full clean view of the Proof and Practice online-course landing page"
+				width="1900"
+				height="965"
+			/>
+		</div>
+	</dialog>
+
+	<section class="project-content">
+		<div class="wrap project-content-grid">
+			<div class="section-head">
+				<span class="eyebrow">What I built</span>
+				<h2>A complete page, not just a polished hero.</h2>
+			</div>
+			<div class="project-copy">
+				<p class="project-intro">
+					This project demonstrates how I turn a detailed offer into a focused, easy-to-follow
+					page—from the first headline through supporting information, pricing, FAQs, and
+					the final call to action.
+				</p>
+				<p>
+					I created the visual direction, content hierarchy, reusable sections, responsive
+					behavior, navigation, expandable FAQs, and safe demo interactions. The result is
+					a long-form page that stays readable, intentional, and easy to scan.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="project-features">
+		<div class="wrap">
+			<div class="section-head compact-head">
+				<span class="eyebrow">What it demonstrates</span>
+				<h2>A complete landing-page experience</h2>
+			</div>
+			<div class="feature-cards">
+				<article>
+					<span>01</span>
+					<h3>Message hierarchy</h3>
+					<p>Headlines, supporting copy, proof points, and calls to action are arranged so visitors understand the offer without hunting for information.</p>
+				</article>
+				<article>
+					<span>02</span>
+					<h3>Custom visual direction</h3>
+					<p>Editorial typography, warm colors, photography, spacing, and small graphic details create a distinctive design instead of a generic template.</p>
+				</article>
+				<article>
+					<span>03</span>
+					<h3>Responsive front-end build</h3>
+					<p>Navigation, content grids, imagery, FAQ controls, and calls to action adapt cleanly from desktop to mobile.</p>
+				</article>
+				<article>
+					<span>04</span>
+					<h3>Complete interaction states</h3>
+					<p>Menus, expandable answers, anchored navigation, hover states, and demo-safe inquiry actions make the page feel finished and usable.</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="project-cta">
+		<div class="wrap">
+			<div class="project-cta-card">
+				<div>
+					<span class="eyebrow">Explore the build</span>
+					<h2>See the full page in action.</h2>
+					<p>Open the responsive build, or get in touch to discuss a landing page designed around your own offer and audience.</p>
+				</div>
+				<div class="project-actions">
+					<a class="btn btn-primary" href={liveDemoUrl} target="_blank" rel="noopener noreferrer">View live demo <span aria-hidden="true">↗</span></a>
+					<a class="btn btn-ghost" href="/#contact">Start a conversation</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	const previewDialog = document.querySelector<HTMLDialogElement>('.preview-dialog');
+	const previewTrigger = document.querySelector<HTMLButtonElement>('.preview-trigger');
+	const previewClose = document.querySelector<HTMLButtonElement>('.preview-close');
+
+	previewTrigger?.addEventListener('click', () => previewDialog?.showModal());
+	previewClose?.addEventListener('click', () => previewDialog?.close());
+
+	previewDialog?.addEventListener('click', (event) => {
+		if (event.target === previewDialog) previewDialog.close();
+	});
+</script>
+
+<style>
+	.project-hero { padding: 96px 0 76px; }
+	.project-hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+		gap: clamp(52px, 8vw, 100px);
+		align-items: end;
+	}
+	.back-link {
+		display: block;
+		width: fit-content;
+		margin-bottom: 34px;
+		color: var(--ink-soft);
+		font-size: .88rem;
+		font-weight: 700;
+	}
+	.back-link:hover { color: var(--blue); }
+	h1 {
+		max-width: 850px;
+		font-size: clamp(2.8rem, 6vw, 5.3rem);
+		line-height: .98;
+		letter-spacing: -.05em;
+	}
+	.project-lede {
+		max-width: 660px;
+		margin-top: 26px;
+		color: var(--ink-soft);
+		font-size: 1.1rem;
+		line-height: 1.7;
+	}
+	.project-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 32px;
+	}
+	.demo-note {
+		margin-top: 18px;
+		color: var(--ink-soft);
+		font-size: .78rem;
+	}
+	.project-facts {
+		margin: 0;
+		padding: 8px 28px;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: rgba(255,255,255,.66);
+		box-shadow: var(--shadow);
+	}
+	.project-facts div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+	.project-facts div:last-child { border: 0; }
+	.project-facts dt {
+		color: var(--ink-soft);
+		font-size: .72rem;
+		font-weight: 700;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+	}
+	.project-facts dd {
+		margin: 5px 0 0;
+		color: var(--blue-deep);
+		font-family: var(--font-heading);
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.project-showcase { padding: 0 0 108px; }
+	.browser-frame {
+		overflow: hidden;
+		border: 1px solid rgba(11,36,71,.16);
+		border-radius: 18px;
+		background: #fff;
+		box-shadow: 0 32px 80px -42px rgba(11,36,71,.7);
+	}
+	.browser-bar {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		height: 46px;
+		padding: 0 16px;
+		background: #f1ebe3;
+	}
+	.browser-bar > span { width: 9px; height: 9px; border-radius: 50%; background: #d6cabe; }
+	.browser-bar > span:first-child { background: #ee7761; }
+	.browser-bar > span:nth-child(2) { background: #e8a33d; }
+	.browser-bar > span:nth-child(3) { background: #63ad81; }
+	.browser-bar div {
+		margin-left: 10px;
+		padding: 5px 16px;
+		border-radius: 7px;
+		background: rgba(255,255,255,.72);
+		color: #68777b;
+		font-size: .7rem;
+	}
+	.browser-frame img { width: 100%; height: auto; }
+	.preview-trigger {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: 0;
+		background: #fff;
+		cursor: zoom-in;
+	}
+	.preview-hint {
+		position: absolute;
+		right: 18px;
+		bottom: 18px;
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 15px;
+		border-radius: var(--radius-full);
+		background: rgba(11,36,71,.92);
+		color: #fff;
+		font-size: .78rem;
+		font-weight: 700;
+		box-shadow: var(--shadow);
+		transition: transform .2s ease, background-color .2s ease;
+	}
+	.preview-trigger:hover .preview-hint { transform: translateY(-2px); background: var(--blue); }
+	.preview-dialog {
+		width: 100vw;
+		max-width: none;
+		height: 100vh;
+		max-height: none;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: #f7f4ef;
+	}
+	.preview-dialog::backdrop { background: rgba(11,36,71,.82); }
+	.preview-toolbar {
+		position: sticky;
+		z-index: 2;
+		top: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 60px;
+		padding: 10px clamp(18px, 3vw, 42px);
+		border-bottom: 1px solid rgba(11,36,71,.12);
+		background: rgba(255,255,255,.94);
+		backdrop-filter: blur(10px);
+	}
+	.preview-toolbar p {
+		color: var(--blue-deep);
+		font-family: var(--font-heading);
+		font-weight: 700;
+	}
+	.preview-close {
+		display: inline-flex;
+		align-items: center;
+		gap: 9px;
+		padding: 8px 13px;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-full);
+		background: #fff;
+		color: var(--blue-deep);
+		font: 700 .8rem var(--font-body);
+		cursor: pointer;
+	}
+	.preview-close span { font-size: 1.15rem; line-height: 1; }
+	.preview-canvas {
+		display: grid;
+		place-items: start center;
+		min-height: calc(100vh - 60px);
+		padding: clamp(16px, 3vw, 44px);
+		overflow: auto;
+	}
+	.preview-canvas img {
+		width: min(1900px, 100%);
+		height: auto;
+		box-shadow: 0 22px 70px -38px rgba(11,36,71,.7);
+	}
+	.project-content { padding: 104px 0; background: var(--panel); border-block: 1px solid var(--line); }
+	.project-content-grid {
+		display: grid;
+		grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr);
+		gap: clamp(52px, 7vw, 80px);
+		align-items: start;
+	}
+	.project-content .section-head { margin-bottom: 0; }
+	.project-content h2, .project-features h2, .project-cta h2 {
+		font-size: clamp(2rem, 4vw, 3.3rem);
+	}
+	.project-copy {
+		color: var(--ink-soft);
+		padding-top: 58px;
+	}
+	.project-copy p { margin-bottom: 18px; line-height: 1.75; }
+	.project-copy .project-intro { color: var(--ink); font-size: 1.18rem; }
+	.project-features { padding: 104px 0; }
+	.compact-head { max-width: 700px; margin-bottom: 42px; }
+	.feature-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+	.feature-cards article {
+		padding: 30px;
+		border: 1px solid var(--line);
+		border-radius: var(--radius);
+		background: var(--panel);
+		box-shadow: var(--shadow);
+	}
+	.feature-cards article > span {
+		display: block;
+		margin-bottom: 24px;
+		color: var(--gold);
+		font-family: var(--font-heading);
+		font-weight: 800;
+	}
+	.feature-cards h3 { margin-bottom: 10px; font-size: 1.2rem; }
+	.feature-cards p { color: var(--ink-soft); font-size: .94rem; line-height: 1.65; }
+	.project-cta { padding: 0 0 110px; }
+	.project-cta-card {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 50px;
+		align-items: end;
+		padding: 48px;
+		border-radius: var(--radius);
+		background: var(--blue-deep);
+		color: #fff;
+	}
+	.project-cta-card h2 { color: #fff; }
+	.project-cta-card p { max-width: 600px; margin-top: 12px; color: rgba(255,255,255,.75); }
+	.project-cta-card .eyebrow { color: var(--blue-deep); }
+	.project-cta-card .btn-primary { background: var(--gold); color: var(--blue-deep); }
+	.project-cta-card .btn-ghost { border-color: rgba(255,255,255,.5); color: #fff; }
+	.project-cta-card .project-actions { margin-top: 0; }
+	@media (max-width: 860px) {
+		.project-hero-grid, .project-content-grid, .project-cta-card { grid-template-columns: 1fr; }
+		.project-hero { padding-top: 70px; }
+		.project-facts { max-width: 560px; }
+		.project-content-grid { gap: 34px; }
+		.project-copy { padding-top: 0; }
+		.project-cta-card { gap: 26px; }
+	}
+	@media (max-width: 560px) {
+		.project-hero { padding: 54px 0 60px; }
+		h1 { font-size: 2.75rem; }
+		.project-actions { align-items: stretch; flex-direction: column; }
+		.project-actions .btn { width: 100%; }
+		.project-showcase { padding-bottom: 76px; }
+		.browser-bar div { overflow: hidden; max-width: 170px; white-space: nowrap; }
+		.project-content, .project-features { padding: 76px 0; }
+		.feature-cards { grid-template-columns: 1fr; }
+		.project-cta { padding-bottom: 76px; }
+		.project-cta-card { padding: 32px 24px; }
+	}
+</style>
+
+<style is:global>
+	.preview-dialog {
+		position: fixed;
+		inset: 0;
+		width: 100vw;
+		max-width: none;
+		height: 100dvh;
+		max-height: none;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		outline: 0;
+		background: #f7f4ef;
+		color: var(--ink);
+		box-shadow: none;
+	}
+
+	.preview-dialog[open] {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.preview-dialog::backdrop {
+		background: rgba(11, 36, 71, .76);
+	}
+
+	.preview-dialog .preview-toolbar {
+		position: sticky;
+		z-index: 2;
+		top: 0;
+		flex: 0 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 64px;
+		padding: 10px clamp(18px, 3vw, 42px);
+		border-bottom: 1px solid rgba(11, 36, 71, .12);
+		background: rgba(255, 255, 255, .96);
+		box-shadow: 0 8px 24px -22px rgba(11, 36, 71, .65);
+		backdrop-filter: blur(10px);
+	}
+
+	.preview-dialog .preview-toolbar p {
+		margin: 0;
+		color: var(--blue-deep);
+		font-family: var(--font-heading);
+		font-weight: 700;
+	}
+
+	.preview-dialog .preview-close {
+		display: inline-flex;
+		align-items: center;
+		gap: 9px;
+		padding: 8px 13px;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-full);
+		outline-offset: 3px;
+		background: #fff;
+		color: var(--blue-deep);
+		font: 700 .8rem var(--font-body);
+		cursor: pointer;
+	}
+
+	.preview-dialog .preview-close span {
+		font-size: 1.15rem;
+		line-height: 1;
+	}
+
+	.preview-dialog .preview-canvas {
+		flex: 1 1 auto;
+		display: grid;
+		place-items: start center;
+		min-height: 0;
+		padding: clamp(16px, 3vw, 44px);
+		overflow: auto;
+		background:
+			radial-gradient(circle at 50% 0, rgba(232, 163, 61, .09), transparent 35rem),
+			#f7f4ef;
+	}
+
+	.preview-dialog .preview-canvas img {
+		display: block;
+		width: min(1900px, 100%);
+		max-width: 100%;
+		height: auto;
+		border: 0;
+		outline: 0;
+		background: #fff;
+		box-shadow: 0 24px 64px -38px rgba(11, 36, 71, .55);
+	}
+</style>
