@@ -1,102 +1,15 @@
 ---
-const handoverItems = [
-	"source repository / archive",
-	"setup guide",
-	"development commands",
-	"build commands",
-	"deployment notes",
-	"environment variables",
-	"database notes",
-	"hosting & domain notes",
-	"admin account guide",
-	"third-party services",
-	"known limitations",
-	"support end date"
-];
-
-const notIncludedSupport = [
-	"new features or new screens",
-	"major design changes",
-	"content updates beyond agreed scope",
-	"third-party service or API outages",
-	"hosting provider issues",
-	"payment gateway, SMS, or email provider issues",
-	"changes made by another developer",
-	"issues caused by client-side modifications",
-	"long-term maintenance"
-];
 ---
 
 <section id="scope">
 	<div class="wrap">
-		<div class="section-head reveal">
+		<div class="policy-summary reveal">
 			<span class="eyebrow">Project Clarity</span>
-			<h2>Scope, handover &amp; support policies</h2>
-			<p>Fair, transparent guidelines that ensure complete ownership and prevent surprises later.</p>
-		</div>
-
-		<div class="scope-grid">
-			<!-- Scope & Changes Card -->
-			<div class="panel-card reveal">
-				<span class="tag-pill" style="margin-bottom: 16px;">Scope &amp; Changes</span>
-				<h3>Fixed-price work requires fixed scope.</h3>
-				<p style="margin-top: 12px; color: var(--ink-soft); font-size: 0.96rem; line-height: 1.55;">
-					Small content edits and agreed revisions are included within the project scope.
-				</p>
-				<p style="margin-top: 8px; color: var(--ink-soft); font-size: 0.96rem; line-height: 1.55;">
-					New features, major design changes, new screens, changed workflows, third-party integrations, backend changes, or changes requested after scope approval are quoted separately and may require additional time.
-				</p>
-				<div class="policy-note">
-					This keeps the project fair, clear, and manageable for both sides.
-				</div>
-			</div>
-
-			<!-- Handover & Ownership Card -->
-			<div class="panel-card reveal">
-				<span class="tag-pill" style="margin-bottom: 16px; background: var(--gold); color: var(--blue-deep);">Handover &amp; Ownership</span>
-				<h3>The project becomes yours after final payment.</h3>
-				<p style="margin-top: 12px; color: var(--ink-soft); font-size: 0.96rem; line-height: 1.55;">
-					After final payment, the agreed project files and source code are handed over to you.
-				</p>
-				<p style="margin: 12px 0 8px 0; font-weight: 600; color: var(--blue-deep); font-size: 0.92rem;">
-					Handover package includes:
-				</p>
-				<ul class="check-list handover-list">
-					{handoverItems.map(item => (
-						<li>
-							<span class="mark">✓</span>
-							<span>{item}</span>
-						</li>
-					))}
-				</ul>
-			</div>
-
-			<!-- Support Policy Section -->
-			<div class="panel-card support-policy-panel reveal">
-			<span class="tag-pill" style="margin-bottom: 16px; background: var(--blue-deep); color: #fff;">Support Policy</span>
-			<div class="support-grid">
-				<div>
-					<h4 style="color: var(--blue-deep); font-size: 1.1rem; margin-bottom: 8px;">Included Support</h4>
-					<p style="font-size: 0.95rem; color: var(--ink-soft); line-height: 1.5;">
-						30 days of post-launch bug-fix support is included for issues related to the agreed project scope.
-					</p>
-
-					<h4 style="color: var(--blue-deep); font-size: 1.1rem; margin: 18px 0 8px 0;">Optional Transition Support</h4>
-					<p style="font-size: 0.95rem; color: var(--ink-soft); line-height: 1.5;">
-						If you need additional short-term support after launch, we can discuss a limited transition support period before handover.
-					</p>
-				</div>
-
-				<div>
-					<h4 style="color: var(--blue-deep); font-size: 1.1rem; margin-bottom: 8px;">Not Included by Default</h4>
-					<ul class="not-included-list">
-						{notIncludedSupport.map(item => (
-							<li><span class="list-dot" aria-hidden="true"></span><span>{item}</span></li>
-						))}
-					</ul>
-				</div>
-			</div>
-			</div>
+			<h2>Clear scope. Proper handover. Short bug support.</h2>
+			<p>
+				Projects start after written scope approval and advance payment. Final source code and handover materials are transferred after final payment. 30 days of bug-fix support is included for agreed-scope issues.
+			</p>
+			<a class="work-link" href="/service-policy/">Read service policy →</a>
 		</div>
 	</div>
 </section>

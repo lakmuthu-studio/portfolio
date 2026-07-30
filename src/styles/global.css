@@ -69,6 +69,21 @@ img {
   display: block;
 }
 
+main,
+section,
+.wrap,
+.nav-inner,
+.hero-grid,
+.about,
+.contact,
+.work-grid,
+.scope-grid,
+.steps-grid,
+.menu-row,
+.form-row {
+  min-width: 0;
+}
+
 .wrap {
   max-width: 1160px;
   margin: 0 auto;
@@ -141,14 +156,11 @@ header.nav {
   color: var(--blue-deep);
 }
 
-.brand-mark {
-  display: grid;
+.brand-logo {
+  display: block;
   width: 36px;
   height: 36px;
-  place-items: center;
   border-radius: 11px;
-  color: var(--gold-soft);
-  background: var(--blue-deep);
   box-shadow: 0 8px 20px -12px var(--blue-deep);
 }
 
@@ -219,9 +231,9 @@ nav.links a:hover {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(320px, .82fr);
-  gap: clamp(48px, 7vw, 88px);
+  grid-template-columns: 1fr;
   align-items: center;
+  text-align: left;
 }
 
 .eyebrow {
@@ -240,6 +252,8 @@ nav.links a:hover {
 }
 
 .hero h1 {
+  max-width: 19ch;
+  margin-inline: 0;
   font-size: clamp(2.65rem, 5.2vw, 4.45rem);
   line-height: 1;
   letter-spacing: -.045em;
@@ -256,10 +270,10 @@ nav.links a:hover {
 }
 
 .hero p.lede {
-  margin-top: 22px;
+  margin: 22px 0 0;
   font-size: 1.12rem;
   color: var(--ink-soft);
-  max-width: 48ch;
+  max-width: 66ch;
   line-height: 1.55;
 }
 
@@ -273,6 +287,7 @@ nav.links a:hover {
 
 .hero-ctas {
   display: flex;
+  justify-content: flex-start;
   gap: 14px;
   margin-top: 34px;
   flex-wrap: wrap;
@@ -395,6 +410,157 @@ nav.links a:hover {
   font-size: 0.82rem;
   color: var(--ink-soft);
   line-height: 1.45;
+}
+
+/* ---------- QUICK PRICING ---------- */
+.quick-pricing {
+  padding-top: 72px;
+  border-block: 1px solid rgba(11, 36, 71, .06);
+  background: rgba(255, 255, 255, .52);
+}
+
+.quick-pricing .section-head {
+  margin-bottom: 32px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pricing-card {
+  min-width: 0;
+  padding: 26px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.pricing-card h3 {
+  min-height: 2.4em;
+  margin-bottom: 24px;
+  font-size: 1.08rem;
+}
+
+.pricing-card .pricing-label {
+  margin-bottom: 2px;
+  color: var(--blue);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.pricing-card .pricing-price {
+  margin-bottom: 16px;
+  color: var(--blue-deep);
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1;
+}
+
+.pricing-card span,
+.pricing-disclaimer {
+  color: var(--ink-soft);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.pricing-card > span {
+  display: block;
+  min-height: 3em;
+}
+
+.pricing-card a {
+  display: inline-flex;
+  margin-top: 20px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--gold);
+  color: var(--blue-deep);
+  font-size: .82rem;
+  font-weight: 800;
+}
+
+.pricing-card:nth-child(3) {
+  border-color: rgba(232, 163, 61, .75);
+  box-shadow: 0 22px 54px -30px rgba(11, 36, 71, .5);
+}
+
+.pricing-disclaimer {
+  margin-top: 18px;
+}
+
+/* ---------- EARLY CONTACT ---------- */
+.early-contact {
+  padding: 44px 0;
+  background: var(--gold-soft);
+}
+
+.early-contact-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 48px;
+  align-items: center;
+  padding: 42px;
+  border-radius: var(--radius);
+  background: var(--blue-deep);
+  color: #fff;
+  box-shadow: var(--shadow-hover);
+}
+
+.early-contact-card .eyebrow {
+  margin-bottom: 14px;
+}
+
+.early-contact-card h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+
+.early-contact-card p {
+  max-width: 650px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, .78);
+}
+
+.early-contact-actions {
+  display: grid;
+  min-width: 230px;
+  gap: 10px;
+}
+
+.early-contact-actions .btn-primary {
+  background: var(--gold);
+  color: var(--blue-deep);
+}
+
+.early-contact-actions .btn-ghost {
+  border-color: rgba(255, 255, 255, .5);
+  color: #fff;
+}
+
+.policy-summary {
+  max-width: 860px;
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.policy-summary h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+}
+
+.policy-summary p {
+  margin: 16px 0 22px;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 /* ---------- SHARED UNIFIED CARDS & HEADINGS ---------- */
@@ -1251,11 +1417,14 @@ footer {
     transform: translateY(-6px) rotate(-45deg);
   }
   nav.links {
-    position: absolute;
-    top: calc(100% + 10px);
+    position: fixed;
+    top: 78px;
     right: 28px;
     left: 28px;
+    z-index: 60;
     display: none;
+    max-height: calc(100dvh - 96px);
+    overflow-y: auto;
     padding: 14px;
     gap: 4px;
     align-items: stretch;
@@ -1279,6 +1448,9 @@ footer {
     text-align: center;
   }
   .hero-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .early-contact-card { grid-template-columns: 1fr; gap: 28px; }
+  .early-contact-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .signboard { transform: none; }
   .about { grid-template-columns: 1fr; gap: 32px; }
   .work-grid { grid-template-columns: 1fr; }
@@ -1311,28 +1483,97 @@ footer {
   .wrap { padding-inline: 20px; }
   .nav-inner { min-height: 64px; padding: 10px 20px; }
   .brand { font-size: .98rem; }
-  .brand-mark { width: 32px; height: 32px; border-radius: 9px; }
-  nav.links { right: 20px; left: 20px; }
-  .hero { padding: 72px 0 50px; }
+  .brand-logo { width: 32px; height: 32px; border-radius: 9px; }
+  nav.links { top: 70px; right: 12px; left: 12px; }
+  .hero { padding: 46px 0 56px; }
   .hero::after { display: none; }
-  .hero h1 { font-size: clamp(2.35rem, 12vw, 3.2rem); }
-  .hero p.lede { font-size: 1.02rem; }
-  .hero-ctas { display: grid; }
+  .hero-grid { gap: 38px; text-align: left; }
+  .hero .eyebrow {
+    margin-bottom: 18px;
+    padding: 6px 11px;
+    font-size: .7rem;
+    line-height: 1.35;
+    letter-spacing: .065em;
+  }
+  .hero h1 {
+    max-width: 12ch;
+    margin-inline: 0;
+    font-size: clamp(2.2rem, 10vw, 2.65rem);
+    line-height: 1.02;
+    letter-spacing: -.04em;
+  }
+  .hero p.lede {
+    margin: 20px 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .hero p.hero-sub {
+    margin-top: 12px;
+    font-size: .92rem;
+    line-height: 1.58;
+  }
+  .hero-ctas { display: grid; justify-content: stretch; }
+  .hero-ctas { gap: 10px; margin-top: 26px; }
   .hero-ctas .btn { width: 100%; }
-  .signboard { padding: 34px 24px; }
+  .btn { min-height: 48px; padding: 12px 20px; font-size: .94rem; }
+  .signboard { padding: 30px 22px; border-radius: 16px; }
+  .signboard .sb-title { margin-bottom: 16px; font-size: .92rem; }
+  .sb-list { gap: 12px; }
+  .sb-list li { padding-bottom: 12px; font-size: .9rem; }
+  .sb-list .item-note { font-size: .76rem; }
+  .hero-pricing-note { font-size: .76rem; }
+  .quick-pricing { padding-top: 56px; }
+  .quick-pricing .section-head { margin-bottom: 26px; }
+  .pricing-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pricing-card { padding: 18px 16px; border-radius: 14px; }
+  .pricing-card h3 { min-height: 0; margin-bottom: 18px; font-size: .96rem; }
+  .pricing-card .pricing-label { margin-bottom: 2px; font-size: .62rem; }
+  .pricing-card .pricing-price { margin-bottom: 12px; font-size: 2rem; }
+  .pricing-card span { font-size: .8rem; }
+  .pricing-card > span { min-height: 0; }
+  .pricing-card a { margin-top: 16px; font-size: .76rem; }
+  .early-contact { padding: 20px 0; }
+  .early-contact-card { padding: 28px 22px; gap: 24px; }
+  .early-contact-card h2 { font-size: 1.85rem; }
+  .early-contact-actions { grid-template-columns: 1fr; min-width: 0; }
+  .early-contact-actions .btn { width: 100%; }
+  .policy-summary { padding: 26px 20px; }
+  .policy-summary h2 { font-size: 1.8rem; }
   .sb-list li { align-items: flex-start; }
-  section { padding: 68px 0; }
+  section { padding: 56px 0; }
   .section-head { margin-bottom: 34px; }
-  .section-head h2 { font-size: 2rem; }
-  .panel-card { padding: 24px; }
-  .scope-grid > .panel-card { padding: 26px 22px; }
+  .section-head h2 {
+    font-size: clamp(1.85rem, 9vw, 2.15rem);
+    overflow-wrap: anywhere;
+  }
+  .about { gap: 24px; }
+  .about-text h2 { font-size: 1.8rem; }
+  .about-text p,
+  .section-head p { font-size: .96rem; }
+  .panel-card { padding: 22px 20px; }
+  .scope-grid > .panel-card { padding: 22px 20px; }
+  .check-list { gap: 12px; }
+  .check-list li { font-size: .92rem; }
   .handover-list { grid-template-columns: 1fr; }
   .support-grid { grid-template-columns: 1fr; }
   .not-included-list { grid-template-columns: 1fr; }
-  .menu-row { padding: 26px 22px; }
+  .menu-row { padding: 24px 20px; gap: 14px; }
+  .menu-row p { font-size: .92rem; }
+  .menu-row > div:last-child { justify-self: start !important; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .work-grid { gap: 20px; }
+  .work-body { padding: 22px 20px 24px; }
+  .work-body h3 { font-size: 1.25rem; }
+  .work-frame { aspect-ratio: 4 / 3; }
+  .tag-pill {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+  }
   .faq-summary { padding: 19px 20px; font-size: 1rem; gap: 16px; }
   .faq-content { padding: 15px 20px 20px; }
-  .contact-copy { padding: 34px 24px; }
+  .contact { gap: 20px; }
+  .contact-copy { padding: 30px 22px; }
   .contact-ctas { grid-template-columns: 1fr; }
   .quote-form-wrapper { padding: 24px 18px; margin-top: 0; }
   .quote-form-header { margin-bottom: 22px; padding-bottom: 20px; }
@@ -1340,4 +1581,19 @@ footer {
   .contact-ctas .btn { width: 100%; }
   .legal-page,
   .error-page { padding: 58px 0 76px; }
+  .legal-content { padding: 26px 20px; }
+  .footer-content { gap: 12px; }
+  .footer-links { flex-direction: column; gap: 8px; }
+  .footer-links span { display: none; }
+}
+
+@media (max-width: 380px) {
+  .wrap { padding-inline: 16px; }
+  .nav-inner { padding-inline: 16px; }
+  .brand { gap: 8px; font-size: .92rem; }
+  .hero h1 { font-size: 2.1rem; }
+  .signboard,
+  .contact-copy { padding-inline: 20px; }
+  .panel-card,
+  .scope-grid > .panel-card { padding-inline: 20px; }
 }

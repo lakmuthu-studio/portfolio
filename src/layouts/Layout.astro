@@ -90,7 +90,7 @@ const structuredData = {
 		<header class="nav">
 			<div class="nav-inner">
 				<a href="/" class="brand" aria-label="Lakmuthu Studio, home">
-					<span class="brand-mark" aria-hidden="true">L</span>
+					<img class="brand-logo" src="/logo-mark.svg" alt="" width="36" height="36" />
 					<span>Lakmuthu Studio</span>
 				</a>
 				<nav class="links" id="site-navigation" aria-label="Primary navigation">
@@ -150,6 +150,15 @@ const structuredData = {
 				if (label) label.textContent = isOpen ? 'Open navigation' : 'Close navigation';
 			});
 			siteNavigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNavigation));
+			document.addEventListener('pointerdown', event => {
+				if (navToggle?.getAttribute('aria-expanded') !== 'true') return;
+				const target = event.target;
+				if (!(target instanceof Node)) return;
+				if (!siteNavigation?.contains(target) && !navToggle?.contains(target)) closeNavigation();
+			});
+			window.addEventListener('resize', () => {
+				if (window.innerWidth > 860) closeNavigation();
+			});
 			document.addEventListener('keydown', event => {
 				if (event.key === 'Escape') closeNavigation();
 			});

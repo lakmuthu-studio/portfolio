@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const liveDemoUrl = '/demo/admin-dashboard/live/';
+---
+
+<Layout
+	title="Admin Dashboard & Internal Tool Demo | Lakmuthu Studio"
+	description="A React admin dashboard demonstrating the internal tools, CRUD workflows, and business software Lakmuthu Studio can build."
+	image="/images/admin-dashboard-demo.png"
+>
+	<section class="project-hero">
+		<div class="wrap project-hero-grid">
+			<div>
+				<a class="back-link" href="/#work">← Back to work examples</a>
+				<span class="eyebrow">Admin dashboard demo</span>
+				<h1>An internal tool that turns business activity into clear actions.</h1>
+				<p class="project-lede">
+					Papertrail Books is a fictional bookshop admin system created to demonstrate
+					how I can turn orders, customer records, inventory, and reporting into a
+					coherent application instead of a collection of spreadsheets.
+				</p>
+				<div class="project-actions">
+					<a class="btn btn-primary" href={liveDemoUrl} target="_blank" rel="noopener noreferrer">Open dashboard demo <span aria-hidden="true">↗</span></a>
+					<a class="btn btn-ghost" href="/#contact">Discuss an internal tool</a>
+				</div>
+				<p class="demo-note">The application uses fake local data only. No real customer, account, payment, or business information is represented.</p>
+			</div>
+			<dl class="project-facts" aria-label="Project details">
+				<div><dt>Application type</dt><dd>Admin dashboard</dd></div>
+				<div><dt>Front end</dt><dd>React + Vite</dd></div>
+				<div><dt>Workflows</dt><dd>Orders, customers, and inventory</dd></div>
+				<div><dt>Data</dt><dd>Fake local demo records</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="project-showcase">
+		<div class="wrap">
+			<div class="browser-frame">
+				<div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><div>papertrail-admin.demo</div></div>
+				<button class="preview-trigger" type="button" aria-label="Open a clean full-screen view of the dashboard">
+					<img src="/images/admin-dashboard-demo.webp" alt="Papertrail Books admin dashboard overview" width="1440" height="1000" />
+					<span class="preview-hint">View clean preview <span aria-hidden="true">↗</span></span>
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<dialog class="preview-dialog" aria-label="Admin dashboard clean preview">
+		<div class="preview-toolbar"><p>Admin dashboard demo</p><button class="preview-close" type="button">Close <span aria-hidden="true">×</span></button></div>
+		<div class="preview-canvas"><img src="/images/admin-dashboard-demo.webp" alt="Full clean view of the Papertrail Books admin dashboard" width="1440" height="1000" /></div>
+	</dialog>
+
+	<section class="project-content">
+		<div class="wrap project-content-grid">
+			<div class="section-head"><span class="eyebrow">What I built</span><h2>A working application flow, not a static dashboard mockup.</h2></div>
+			<div class="project-copy">
+				<p class="project-intro">The demo covers the day-to-day workflows an operations team would actually use: finding an order, changing its status, reviewing a customer, checking stock, updating inventory, reading reports, and editing business settings.</p>
+				<p>It includes a fake login experience, shared application shell, searchable and filterable data views, responsive navigation, detail dialogs, simulated updates, and clear demo-state messaging. The result demonstrates both interface design and the application logic behind useful business software.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="project-features">
+		<div class="wrap">
+			<div class="section-head compact-head"><span class="eyebrow">What it demonstrates</span><h2>Core capabilities for internal business software</h2></div>
+			<div class="feature-cards">
+				<article><span>01</span><h3>CRUD-style workflows</h3><p>Search records, inspect details, change order statuses, and adjust stock through clear, task-focused controls.</p></article>
+				<article><span>02</span><h3>Information architecture</h3><p>Dashboard, Orders, Customers, Products, Reports, and Settings fit into one consistent application shell.</p></article>
+				<article><span>03</span><h3>Data-heavy interface design</h3><p>Tables, filters, status tags, metrics, charts, and dense records remain readable and responsive.</p></article>
+				<article><span>04</span><h3>Safe front-end simulation</h3><p>Local state demonstrates application behavior without a database, real authentication, payments, or customer information.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="module-section">
+		<div class="wrap module-grid">
+			<div><span class="eyebrow">Included modules</span><h2>A connected view of the business.</h2></div>
+			<ol>
+				<li><b>Dashboard</b><span>KPIs, recent orders, activity, and stock alerts</span></li>
+				<li><b>Orders</b><span>Search, status filters, details, and simulated updates</span></li>
+				<li><b>Customers</b><span>Contact records, order counts, and spending summaries</span></li>
+				<li><b>Products</b><span>Catalog search, categories, prices, and stock controls</span></li>
+				<li><b>Reports</b><span>Monthly revenue, top products, and operational activity</span></li>
+				<li><b>Settings</b><span>Simulated business profile configuration</span></li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="project-cta">
+		<div class="wrap">
+			<div class="project-cta-card">
+				<div><span class="eyebrow">Explore the application</span><h2>Try the complete workflow.</h2><p>Open the interactive dashboard, or get in touch to discuss an internal tool for your own process.</p></div>
+				<div class="project-actions"><a class="btn btn-primary" href={liveDemoUrl} target="_blank" rel="noopener noreferrer">Open dashboard demo <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="/#contact">Start a conversation</a></div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	const dialog = document.querySelector<HTMLDialogElement>('.preview-dialog');
+	document.querySelector('.preview-trigger')?.addEventListener('click', () => dialog?.showModal());
+	document.querySelector('.preview-close')?.addEventListener('click', () => dialog?.close());
+	dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+</script>
+
+<style>
+	.project-hero { padding: 96px 0 76px; }
+	.project-hero-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:clamp(52px,8vw,100px); align-items:end; }
+	.back-link { display:block; width:fit-content; margin-bottom:34px; color:var(--ink-soft); font-size:.88rem; font-weight:700; }
+	h1 { max-width:900px; font-size:clamp(2.8rem,6vw,5.3rem); line-height:.98; letter-spacing:-.05em; }
+	.project-lede { max-width:690px; margin-top:26px; color:var(--ink-soft); font-size:1.1rem; line-height:1.7; }
+	.project-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+	.demo-note { margin-top:18px; color:var(--ink-soft); font-size:.78rem; }
+	.project-facts { margin:0; padding:8px 28px; border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,255,255,.66); box-shadow:var(--shadow); }
+	.project-facts div { padding:20px 0; border-bottom:1px solid var(--line); }.project-facts div:last-child{border:0}
+	.project-facts dt { color:var(--ink-soft); font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+	.project-facts dd { margin:5px 0 0; color:var(--blue-deep); font-family:var(--font-heading); font-size:1rem; font-weight:700; }
+	.project-showcase { padding:0 0 108px; }
+	.browser-frame { overflow:hidden; border:1px solid rgba(11,36,71,.16); border-radius:18px; background:white; box-shadow:0 32px 80px -42px rgba(11,36,71,.7); }
+	.browser-bar { height:46px; padding:0 16px; display:flex; align-items:center; gap:7px; background:#f1ebe3; }
+	.browser-bar>span { width:9px; height:9px; border-radius:50%; background:#d6cabe; }.browser-bar>span:first-child{background:#ee7761}.browser-bar>span:nth-child(2){background:#e8a33d}.browser-bar>span:nth-child(3){background:#63ad81}
+	.browser-bar div { margin-left:10px; padding:5px 16px; border-radius:7px; background:rgba(255,255,255,.72); color:#68777b; font-size:.7rem; }
+	.preview-trigger { position:relative; width:100%; padding:0; border:0; display:block; background:white; cursor:zoom-in; }.preview-trigger img{width:100%;height:auto}
+	.preview-hint { position:absolute; right:18px; bottom:18px; padding:10px 15px; border-radius:999px; background:rgba(11,36,71,.92); color:white; font-size:.78rem; font-weight:700; }
+	.project-content { padding:104px 0; background:var(--panel); border-block:1px solid var(--line); }
+	.project-content-grid { display:grid; grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr); gap:clamp(52px,7vw,80px); align-items:start; }
+	.project-content .section-head{margin-bottom:0}.project-content h2,.project-features h2,.module-section h2,.project-cta h2{font-size:clamp(2rem,4vw,3.3rem)}
+	.project-copy{padding-top:58px;color:var(--ink-soft)}.project-copy p{margin-bottom:18px;line-height:1.75}.project-copy .project-intro{color:var(--ink);font-size:1.18rem}
+	.project-features{padding:104px 0}.compact-head{max-width:760px;margin-bottom:42px}.feature-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+	.feature-cards article{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow)}.feature-cards article>span{display:block;margin-bottom:24px;color:var(--gold);font-family:var(--font-heading);font-weight:800}.feature-cards h3{margin-bottom:10px;font-size:1.2rem}.feature-cards p{color:var(--ink-soft);font-size:.94rem;line-height:1.65}
+	.module-section{padding:104px 0;border-block:1px solid var(--line);background:rgba(255,255,255,.48)}.module-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}.module-grid ol{margin:0;padding:0;list-style:none}.module-grid li{display:grid;grid-template-columns:.55fr 1fr;gap:20px;padding:19px 0;border-top:1px solid var(--line)}.module-grid b{color:var(--blue-deep)}.module-grid li span{color:var(--ink-soft);font-size:.9rem}
+	.project-cta{padding:104px 0}.project-cta-card{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:end;padding:48px;border-radius:var(--radius);background:var(--blue-deep);color:white}.project-cta-card h2{color:white}.project-cta-card p{max-width:610px;margin-top:12px;color:rgba(255,255,255,.75)}.project-cta-card .eyebrow{color:var(--blue-deep)}.project-cta-card .btn-primary{background:var(--gold);color:var(--blue-deep)}.project-cta-card .btn-ghost{color:white;border-color:rgba(255,255,255,.5)}.project-cta-card .project-actions{margin-top:0}
+	@media(max-width:860px){.project-hero-grid,.project-content-grid,.module-grid,.project-cta-card{grid-template-columns:1fr}.project-copy{padding-top:0}.project-content-grid,.module-grid{gap:34px}}
+	@media(max-width:560px){.project-hero{padding:54px 0 60px}h1{font-size:clamp(2.25rem,12vw,2.75rem);overflow-wrap:anywhere}.project-actions{flex-direction:column}.project-actions .btn{width:100%}.project-facts{width:100%;padding:5px 20px}.project-facts div{padding:16px 0}.project-showcase{padding-bottom:76px}.browser-frame{border-radius:11px}.browser-bar{height:40px;padding:0 10px;gap:5px}.browser-bar div{min-width:0;max-width:170px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.preview-hint{right:10px;bottom:10px;padding:8px 11px;font-size:.7rem}.project-content,.project-features,.module-section,.project-cta{padding:76px 0}.feature-cards{grid-template-columns:1fr}.feature-cards article{padding:24px 20px}.module-grid li{grid-template-columns:1fr;gap:5px}.project-cta-card{padding:32px 24px}}
+</style>
+
+<style is:global>
+	.preview-dialog{position:fixed;inset:0;width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;outline:0;background:#f7f4ef}.preview-dialog[open]{display:flex;flex-direction:column}.preview-dialog::backdrop{background:rgba(11,36,71,.76)}.preview-dialog .preview-toolbar{min-height:64px;padding:10px clamp(18px,3vw,42px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.96)}.preview-dialog .preview-toolbar p{margin:0;font-family:var(--font-heading);font-weight:700}.preview-dialog .preview-close{padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:white;font-weight:700;cursor:pointer}.preview-dialog .preview-canvas{flex:1;min-height:0;padding:clamp(16px,3vw,44px);display:grid;place-items:start center;overflow:auto}.preview-dialog .preview-canvas img{display:block;width:min(1440px,100%);height:auto;box-shadow:0 24px 64px -38px rgba(11,36,71,.55)}
+	@media(max-width:560px){.preview-dialog .preview-toolbar{min-height:56px;padding:8px 12px;gap:12px}.preview-dialog .preview-toolbar p{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.preview-dialog .preview-close{flex:0 0 auto}.preview-dialog .preview-canvas{padding:8px}}
+</style>

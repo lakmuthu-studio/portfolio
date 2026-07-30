@@ -9,16 +9,59 @@ import WhyMe from '../components/WhyMe.astro';
 import WorkExamples from '../components/WorkExamples.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
+
+const quickOffers = [
+	{ title: "Landing Page", price: "From $150", note: "One focused offer or campaign." },
+	{ title: "Business Website", price: "From $300", note: "A professional public website." },
+	{ title: "Dashboard / Internal Tool", price: "From $600", note: "Manage real business workflows." },
+	{ title: "Web or Mobile App", price: "From $900", note: "A practical first working version." }
+];
 ---
 
 <Layout title="Lakmuthu Studio — Custom Websites, Dashboards & Apps">
 	<Hero />
+	<section id="pricing" class="quick-pricing">
+		<div class="wrap">
+			<div class="section-head reveal">
+				<span class="eyebrow">Services &amp; Starting Prices</span>
+				<h2>Choose the closest starting point.</h2>
+			</div>
+			<div class="pricing-grid">
+				{quickOffers.map(offer => (
+					<article class="pricing-card reveal">
+						<h3>{offer.title}</h3>
+						<p class="pricing-label">Starting at</p>
+						<p class="pricing-price">{offer.price.replace("From ", "")}</p>
+						<span>{offer.note}</span>
+						<a href="#inquiry">Request a quote →</a>
+					</article>
+				))}
+			</div>
+			<p class="pricing-disclaimer">Final pricing depends on the agreed scope, functionality, integrations, and deployment requirements.</p>
+		</div>
+	</section>
+	<WorkExamples />
+	<section id="contact" class="early-contact">
+		<div class="wrap">
+			<div class="early-contact-card reveal">
+				<div>
+					<span class="eyebrow">Start a conversation</span>
+					<h2>Have a similar project in mind?</h2>
+					<p>Send me a short message with your business type and what you want to build. I’ll reply with the next steps.</p>
+				</div>
+				<div class="early-contact-actions">
+					<a href="mailto:kaveensalakmuthu@gmail.com" class="btn btn-primary">Email me →</a>
+					<a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Message on WhatsApp →</a>
+					<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn →</a>
+				</div>
+			</div>
+		</div>
+	</section>
 	<WhoIHelp />
 	<Services />
 	<Process />
-	<ScopeAndHandover />
 	<WhyMe />
-	<WorkExamples />
+	<ScopeAndHandover />
 	<FAQ />
 	<Contact />
 </Layout>
