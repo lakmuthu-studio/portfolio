@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const screens = [
+	{ file: '01-doctors.png', title: 'Find a doctor', note: 'Specialty shortcuts and fictional doctors with familiar channeling details.' },
+	{ file: '02-doctor-details.png', title: 'Doctor profile', note: 'Qualifications, experience, fee, availability, and medical-centre location.' },
+	{ file: '03-date-time.png', title: 'Channeling time', note: 'Selectable dates and available consultation times.' },
+	{ file: '04-patient-details.png', title: 'Patient details', note: 'Name, NIC or passport, mobile number, and an optional reason for the visit.' },
+	{ file: '05-confirmation.png', title: 'Channel confirmation', note: 'A clear simulated success state with sample channel number and arrival time.' },
+	{ file: '06-my-bookings.png', title: 'Appointments', note: 'Upcoming and past channelings held in local app state.' },
+	{ file: '07-profile.png', title: 'Profile and settings', note: 'Mock reminders, saved doctors, history, and help options.' },
+];
+---
+
+<Layout
+	title="Mobile Booking App Demo | Lakmuthu Studio"
+	description="A React Native doctor-channeling prototype demonstrating mobile UI, navigation, forms, local state, and a Sri Lankan-familiar patient journey."
+	image="/images/mobile-booking/cover.webp"
+>
+	<section class="project-hero">
+		<div class="wrap project-hero-grid">
+			<div>
+				<a class="back-link" href="/#work">← Back to work examples</a>
+				<span class="eyebrow">React Native mobile demo</span>
+				<h1>A familiar doctor-channeling journey, designed for a phone.</h1>
+				<p class="project-lede">
+					LankaCare is a fictional Sri Lankan medical-centre app created to demonstrate how I design and build connected native mobile flows—not just isolated screen mockups.
+				</p>
+				<div class="project-actions">
+					<a class="btn btn-primary" href="#screens">View app screens ↓</a>
+					<a class="btn btn-ghost" href="/#contact">Discuss a mobile app</a>
+				</div>
+				<p class="demo-note">This app runs locally on an Android emulator. Every doctor, medical centre, patient, time slot, fee, and appointment is fictional local demo data.</p>
+			</div>
+			<dl class="project-facts" aria-label="Project details">
+				<div><dt>Application type</dt><dd>Doctor-channeling app</dd></div>
+				<div><dt>Technology</dt><dd>React Native + Expo</dd></div>
+				<div><dt>Runtime</dt><dd>Android / iOS-ready UI</dd></div>
+				<div><dt>Data</dt><dd>Local mock state only</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="project-content">
+		<div class="wrap project-content-grid">
+			<div class="section-head">
+				<span class="eyebrow">What I built</span>
+				<h2>A connected mobile flow with real interface behavior.</h2>
+			</div>
+			<div class="project-copy">
+				<p class="project-intro">The prototype moves from specialty and doctor discovery through doctor details, channeling-time selection, patient information, a required demo notice, confirmation, appointments, and profile settings.</p>
+				<p>Selections and form values persist through local React state, and a completed simulated channeling appears in “Appointments.” The data layer is separated from the interface so the same screens can later connect to an API without redesigning the patient journey.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="screen-section" id="screens">
+		<div class="wrap">
+			<div class="section-head compact-head">
+				<span class="eyebrow">Emulator captures</span>
+				<h2>The main journey, screen by screen.</h2>
+				<p>Captured from the working React Native app on an Android emulator. The small gear at the screen edge is an Expo development control, not part of the app interface.</p>
+			</div>
+			<div class="screen-grid">
+				{screens.map((screen) => (
+					<figure class="phone-shot">
+						<div class="phone-frame">
+							<img
+								src={`/images/mobile-booking/${screen.file}`}
+								alt={`${screen.title} screen from the LankaCare doctor-channeling app demo`}
+								width="1080"
+								height="2400"
+								loading="lazy"
+							/>
+						</div>
+						<figcaption>
+							<strong>{screen.title}</strong>
+							<span>{screen.note}</span>
+						</figcaption>
+					</figure>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="project-features">
+		<div class="wrap">
+			<div class="section-head compact-head">
+				<span class="eyebrow">What it demonstrates</span>
+				<h2>Mobile product skills beyond visual mockups.</h2>
+			</div>
+			<div class="feature-cards">
+				<article><span>01</span><h3>Navigation flow</h3><p>Forward and back navigation, persistent bottom tabs, and a coherent seven-screen customer journey.</p></article>
+				<article><span>02</span><h3>Forms and selection state</h3><p>Selectable doctors, dates, time slots, patient fields, validation, settings, and saved appointment state.</p></article>
+				<article><span>03</span><h3>Reusable mobile UI</h3><p>Shared headers, cards, buttons, fields, summaries, navigation, and responsive native layouts.</p></article>
+				<article><span>04</span><h3>API-ready separation</h3><p>Typed mock data and UI state are kept separate, ready to be replaced by real doctor, availability, and channeling APIs.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="scope-section">
+		<div class="wrap scope-card">
+			<div>
+				<span class="eyebrow">Deliberate demo scope</span>
+				<h2>Realistic behavior without pretending there is a production backend.</h2>
+			</div>
+			<div>
+				<p>The prototype intentionally excludes real authentication, hospital records, databases, payments, notifications, patient data, and app-store distribution.</p>
+				<p>When “Channel doctor” is tapped, the app explicitly states: <strong>“Demo only — booking is simulated and not submitted.”</strong></p>
+			</div>
+		</div>
+	</section>
+
+	<section class="project-cta">
+		<div class="wrap">
+			<div class="project-cta-card">
+				<div>
+					<span class="eyebrow">Need a mobile first version?</span>
+					<h2>Let’s map the smallest useful app journey.</h2>
+					<p>I can help turn a workflow into a focused mobile prototype or first working version with the right screens and states.</p>
+				</div>
+				<a class="btn btn-primary" href="/#contact">Start a conversation</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.project-hero { padding: 96px 0 84px; }
+	.project-hero-grid { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(260px,.65fr); gap: clamp(52px,8vw,100px); align-items: end; }
+	.back-link { display: block; width: fit-content; margin-bottom: 34px; color: var(--ink-soft); font-size: .88rem; font-weight: 700; }
+	.back-link:hover { color: var(--blue); }
+	h1 { max-width: 900px; font-size: clamp(2.8rem,6vw,5.3rem); line-height: .98; letter-spacing: -.05em; }
+	.project-lede { max-width: 700px; margin-top: 26px; color: var(--ink-soft); font-size: 1.1rem; line-height: 1.7; }
+	.project-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+	.demo-note { max-width: 700px; margin-top: 18px; color: var(--ink-soft); font-size: .78rem; line-height: 1.55; }
+	.project-facts { margin: 0; padding: 8px 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.66); box-shadow: var(--shadow); }
+	.project-facts div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+	.project-facts div:last-child { border: 0; }
+	.project-facts dt { color: var(--ink-soft); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+	.project-facts dd { margin: 5px 0 0; color: var(--blue-deep); font-family: var(--font-heading); font-size: 1rem; font-weight: 700; }
+	.project-content { padding: 104px 0; border-block: 1px solid var(--line); background: var(--panel); }
+	.project-content-grid { display: grid; grid-template-columns: minmax(280px,.8fr) minmax(0,1.2fr); gap: clamp(52px,7vw,80px); align-items: start; }
+	.project-content .section-head { margin-bottom: 0; }
+	.project-content h2, .screen-section h2, .project-features h2, .scope-section h2, .project-cta h2 { font-size: clamp(2rem,4vw,3.3rem); }
+	.project-copy { padding-top: 58px; color: var(--ink-soft); }
+	.project-copy p { margin-bottom: 18px; line-height: 1.75; }
+	.project-copy .project-intro { color: var(--ink); font-size: 1.18rem; }
+	.compact-head { max-width: 780px; margin-bottom: 44px; }
+	.screen-section { padding: 104px 0; background: #eef2ec; scroll-margin-top: 72px; }
+	.screen-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 38px 26px; }
+	.phone-shot { min-width: 0; margin: 0; }
+	.phone-frame { overflow: hidden; padding: 7px; border: 1px solid rgba(11,36,71,.16); border-radius: 30px; background: #162e29; box-shadow: 0 28px 58px -36px rgba(11,36,71,.65); }
+	.phone-frame img { width: 100%; height: auto; border-radius: 23px; background: #faf6ef; }
+	.phone-shot figcaption { padding: 15px 4px 0; }
+	.phone-shot strong, .phone-shot span { display: block; }
+	.phone-shot strong { color: var(--blue-deep); font-family: var(--font-heading); font-size: 1rem; }
+	.phone-shot span { margin-top: 5px; color: var(--ink-soft); font-size: .84rem; line-height: 1.5; }
+	.project-features { padding: 104px 0; }
+	.feature-cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+	.feature-cards article { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); }
+	.feature-cards article > span { display: block; margin-bottom: 24px; color: var(--gold); font-family: var(--font-heading); font-weight: 800; }
+	.feature-cards h3 { margin-bottom: 10px; font-size: 1.2rem; }
+	.feature-cards p { color: var(--ink-soft); font-size: .94rem; line-height: 1.65; }
+	.scope-section { padding: 104px 0; border-block: 1px solid var(--line); background: rgba(255,255,255,.48); }
+	.scope-card { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: start; }
+	.scope-card p { margin-bottom: 16px; color: var(--ink-soft); line-height: 1.75; }
+	.scope-card strong { color: var(--blue-deep); }
+	.project-cta { padding: 104px 0; }
+	.project-cta-card { display: grid; grid-template-columns: 1fr auto; gap: 50px; align-items: end; padding: 48px; border-radius: var(--radius); color: #fff; background: var(--blue-deep); }
+	.project-cta-card h2 { color: #fff; }
+	.project-cta-card p { max-width: 640px; margin-top: 12px; color: rgba(255,255,255,.75); }
+	.project-cta-card .eyebrow { color: var(--blue-deep); }
+	.project-cta-card .btn-primary { color: var(--blue-deep); background: var(--gold); }
+
+	@media (max-width: 860px) {
+		.project-hero-grid, .project-content-grid, .scope-card, .project-cta-card { grid-template-columns: 1fr; }
+		.project-content-grid, .scope-card { gap: 34px; }
+		.project-copy { padding-top: 0; }
+		.screen-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+		.project-cta-card { gap: 28px; }
+	}
+
+	@media (max-width: 560px) {
+		.project-hero { padding: 54px 0 60px; }
+		h1 { font-size: clamp(2.25rem,12vw,2.75rem); overflow-wrap: anywhere; }
+		.project-actions { flex-direction: column; }
+		.project-actions .btn { width: 100%; }
+		.project-facts { width: 100%; padding: 5px 20px; }
+		.project-facts div { padding: 16px 0; }
+		.project-content, .screen-section, .project-features, .scope-section, .project-cta { padding: 76px 0; }
+		.screen-grid { grid-template-columns: 1fr; gap: 34px; }
+		.phone-shot { max-width: 340px; margin-inline: auto; }
+		.feature-cards { grid-template-columns: 1fr; }
+		.feature-cards article { padding: 24px 20px; }
+		.project-cta-card { padding: 32px 24px; }
+	}
+</style>

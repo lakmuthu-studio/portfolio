@@ -22,10 +22,16 @@ const demos = [
 		caseStudy: "/work/admin-dashboard-demo/"
 	},
 	{
-		title: "Web App Demo",
-		description: "A first-version web application demo showing user workflows, database-backed features, forms, and admin-side management.",
-		goodFor: "startup MVPs, booking systems, order systems, customer portals, internal tools.",
-		image: "/images/mobile-app-demo.png"
+		title: "Mobile Booking App Demo",
+		description: "A React Native doctor-channeling prototype with doctor discovery, scheduling, patient forms, confirmation, appointments, and profile flows.",
+		goodFor: "clinics, hospitals, channeling services, healthcare workflows, and mobile MVPs.",
+		image: "/images/mobile-booking/cover.webp",
+		preview: [
+			"/images/mobile-booking/01-doctors.png",
+			"/images/mobile-booking/02-doctor-details.png",
+			"/images/mobile-booking/05-confirmation.png"
+		],
+		caseStudy: "/work/mobile-booking-app-demo/"
 	},
 	{
 		title: "Desktop / Internal Tool Demo",
@@ -47,8 +53,22 @@ const demos = [
 		<div class="work-grid">
 			{demos.map(demo => demo.caseStudy ? (
 				<a class="work-card work-card-link reveal" href={demo.caseStudy} aria-label={`View the ${demo.title} case study`}>
-					<div class="work-frame">
-						<img src={demo.image} alt="" loading="lazy" />
+					<div class:list={["work-frame", { "mobile-app-preview": demo.preview }]}>
+						{demo.preview ? (
+							<>
+								<div class="preview-copy" aria-hidden="true">
+									<span>React Native demo</span>
+									<strong>Doctor channeling,<br />designed for mobile.</strong>
+								</div>
+								<div class="preview-phones">
+									{demo.preview.map((image, index) => (
+										<img src={image} alt="" loading="lazy" class:list={{ "preview-phone-main": index === 1 }} />
+									))}
+								</div>
+							</>
+						) : (
+							<img src={demo.image} alt="" loading="lazy" />
+						)}
 					</div>
 					<div class="work-body">
 						<h3>{demo.title}</h3>
