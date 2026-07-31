@@ -73,7 +73,7 @@ npm run preview
 
 The primary page is assembled in `src/pages/index.astro`. Each major section is maintained as a separate component in `src/components/`.
 
-Before deploying, replace the placeholder LinkedIn and WhatsApp URLs in `src/components/Contact.astro` with the correct business contact details.
+Contact links are maintained in the homepage contact sections, legal pages, footer, and structured data in `src/layouts/Layout.astro`.
 
 ## Copyright
 

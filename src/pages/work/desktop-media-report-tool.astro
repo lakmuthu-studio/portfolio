@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const screens = [
+	{ file: '01-media-inventory.png', title: 'Media inventory', note: 'A complete folder summary with file metadata and clear report actions.' },
+	{ file: '02-audio-filter.png', title: 'Type filtering', note: 'The same inventory narrowed to audio files without rescanning the folder.' },
+	{ file: '03-codec-search.png', title: 'Metadata search', note: 'Filename and codec search for quickly locating relevant files.' },
+];
+---
+
+<Layout
+	title="Desktop Media Report Tool Demo | Lakmuthu Studio"
+	description="A Linux-tested C++ and Qt desktop tool for local media inspection, filtering, and report export."
+	image="/images/desktop-media-tool/01-media-inventory.png"
+>
+	<section class="project-hero">
+		<div class="wrap project-hero-grid">
+			<div>
+				<a class="back-link" href="/#work">← Back to work examples</a>
+				<span class="eyebrow">C++ and Qt desktop demo</span>
+				<h1>Turn a folder of media files into a useful report.</h1>
+				<p class="project-lede">MediaLedger is a Linux desktop application demonstrating file processing, metadata inspection, filters, and offline reporting in a focused internal-tool interface.</p>
+				<div class="project-actions">
+					<a class="btn btn-primary" href="#screens">View tool screens ↓</a>
+					<a class="btn btn-ghost" href="/#contact">Discuss an internal tool</a>
+				</div>
+				<p class="demo-note">The opening inventory is fictional sample data. Local folder scans remain on the device and nothing is uploaded.</p>
+			</div>
+			<dl class="project-facts" aria-label="Project details">
+				<div><dt>Application type</dt><dd>Linux desktop utility</dd></div>
+				<div><dt>Technology</dt><dd>C++17 + Qt 6 Widgets</dd></div>
+				<div><dt>Media inspection</dt><dd>Local ffprobe process</dd></div>
+				<div><dt>Backend</dt><dd>None required</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="project-content">
+		<div class="wrap project-content-grid">
+			<div class="section-head">
+				<span class="eyebrow">What I built</span>
+				<h2>A working offline workflow, not a static desktop mockup.</h2>
+			</div>
+			<div class="project-copy">
+				<p class="project-intro">The user can select a folder, recursively find supported video and audio files, inspect technical metadata, search the results, filter by type, and export the visible report.</p>
+				<p>The interface starts with safe fictional rows for demonstration. When a real local folder is selected, the app reads filenames, duration, codec, resolution, size, and modified date through a local process. Reports can be saved as CSV or Markdown without accounts, uploads, or network access.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="screen-section" id="screens">
+		<div class="wrap">
+			<div class="section-head compact-head">
+				<span class="eyebrow">Linux captures</span>
+				<h2>The core reporting workflow.</h2>
+				<p>Captured from the compiled Qt application running on Linux.</p>
+			</div>
+			<div class="screen-list">
+				{screens.map((screen) => (
+					<figure class="desktop-shot">
+						<div class="window-frame">
+							<div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>MediaLedger</span></div>
+							<img src={`/images/desktop-media-tool/${screen.file}`} alt={`${screen.title} in the MediaLedger desktop demo`} width="1280" height="790" loading="lazy" />
+						</div>
+						<figcaption><strong>{screen.title}</strong><span>{screen.note}</span></figcaption>
+					</figure>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="project-features">
+		<div class="wrap">
+			<div class="section-head compact-head">
+				<span class="eyebrow">What it demonstrates</span>
+				<h2>Practical desktop and internal-tool engineering.</h2>
+			</div>
+			<div class="feature-cards">
+				<article><span>01</span><h3>Local file processing</h3><p>Recursive folder discovery and metadata inspection for common video and audio formats.</p></article>
+				<article><span>02</span><h3>Useful data workflows</h3><p>Summary metrics, readable tables, live search, media-type filters, and visible-result counts.</p></article>
+				<article><span>03</span><h3>Report generation</h3><p>CSV and Markdown exports created locally from the current filtered inventory.</p></article>
+				<article><span>04</span><h3>Linux desktop delivery</h3><p>A compiled Qt 6 interface with responsive window behavior and Linux-theme-safe styling.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="scope-section">
+		<div class="wrap scope-card">
+			<div><span class="eyebrow">Deliberate demo scope</span><h2>No server or real customer data.</h2></div>
+			<div><p>The demo does not include cloud storage, accounts, databases, remote processing, background services, or automatic sharing.</p><p>Its purpose is to demonstrate a clean, offline desktop workflow that can later be adapted to a business’s actual files and reporting rules.</p></div>
+		</div>
+	</section>
+
+	<section class="project-cta">
+		<div class="wrap"><div class="project-cta-card">
+			<div><span class="eyebrow">Need a focused internal utility?</span><h2>Let’s turn the repetitive workflow into a tool.</h2><p>I can build desktop and internal software for local files, data cleanup, reporting, and offline operations.</p></div>
+			<a class="btn btn-primary" href="/#contact">Start a conversation</a>
+		</div></div>
+	</section>
+</Layout>
+
+<style>
+	.project-hero { padding: 96px 0 84px; }
+	.project-hero-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:clamp(52px,8vw,100px); align-items:end; }
+	.back-link { display:block; width:fit-content; margin-bottom:34px; color:var(--ink-soft); font-size:.88rem; font-weight:700; }
+	h1 { max-width:900px; font-size:clamp(2.8rem,6vw,5.3rem); line-height:.98; letter-spacing:-.05em; }
+	.project-lede { max-width:700px; margin-top:26px; color:var(--ink-soft); font-size:1.1rem; line-height:1.7; }
+	.project-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+	.demo-note { max-width:700px; margin-top:18px; color:var(--ink-soft); font-size:.78rem; line-height:1.55; }
+	.project-facts { margin:0; padding:8px 28px; border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,255,255,.66); box-shadow:var(--shadow); }
+	.project-facts div { padding:20px 0; border-bottom:1px solid var(--line); }
+	.project-facts div:last-child { border:0; }
+	.project-facts dt { color:var(--ink-soft); font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+	.project-facts dd { margin:5px 0 0; color:var(--blue-deep); font-family:var(--font-heading); font-size:1rem; font-weight:700; }
+	.project-content { padding:104px 0; border-block:1px solid var(--line); background:var(--panel); }
+	.project-content-grid { display:grid; grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr); gap:clamp(52px,7vw,80px); align-items:start; }
+	.project-content .section-head { margin-bottom:0; }
+	.project-content h2,.screen-section h2,.project-features h2,.scope-section h2,.project-cta h2 { font-size:clamp(2rem,4vw,3.3rem); }
+	.project-copy { padding-top:58px; color:var(--ink-soft); }
+	.project-copy p { margin-bottom:18px; line-height:1.75; }
+	.project-copy .project-intro { color:var(--ink); font-size:1.18rem; }
+	.compact-head { max-width:780px; margin-bottom:44px; }
+	.screen-section { padding:104px 0; background:#edf1ee; scroll-margin-top:72px; }
+	.screen-list { display:grid; gap:52px; }
+	.desktop-shot { margin:0; }
+	.window-frame { overflow:hidden; border:1px solid rgba(11,36,71,.2); border-radius:14px; background:#102f35; box-shadow:0 30px 70px -38px rgba(11,36,71,.72); }
+	.window-bar { position:relative; display:flex; align-items:center; gap:7px; height:32px; padding:0 13px; background:#183d43; }
+	.window-bar i { width:8px; height:8px; border-radius:50%; background:#efad47; }
+	.window-bar i:nth-child(2) { background:#e46f4f; }
+	.window-bar i:nth-child(3) { background:#77b7a7; }
+	.window-bar span { position:absolute; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.72); font-size:.7rem; }
+	.window-frame img { display:block; width:100%; height:auto; background:#f4f1ea; }
+	.desktop-shot figcaption { display:grid; grid-template-columns:220px 1fr; gap:20px; padding:16px 4px 0; }
+	.desktop-shot strong { color:var(--blue-deep); font-family:var(--font-heading); }
+	.desktop-shot span { color:var(--ink-soft); font-size:.9rem; }
+	.project-features,.scope-section,.project-cta { padding:104px 0; }
+	.feature-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+	.feature-cards article { padding:30px; border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); box-shadow:var(--shadow); }
+	.feature-cards article>span { display:block; margin-bottom:24px; color:var(--gold); font-family:var(--font-heading); font-weight:800; }
+	.feature-cards h3 { margin-bottom:10px; font-size:1.2rem; }
+	.feature-cards p,.scope-card p { color:var(--ink-soft); line-height:1.7; }
+	.scope-section { border-block:1px solid var(--line); background:rgba(255,255,255,.48); }
+	.scope-card { display:grid; grid-template-columns:.9fr 1.1fr; gap:72px; }
+	.scope-card p { margin-bottom:16px; }
+	.project-cta-card { display:grid; grid-template-columns:1fr auto; gap:50px; align-items:end; padding:48px; border-radius:var(--radius); color:#fff; background:var(--blue-deep); }
+	.project-cta-card h2 { color:#fff; }
+	.project-cta-card p { max-width:640px; margin-top:12px; color:rgba(255,255,255,.75); }
+	.project-cta-card .eyebrow { color:var(--blue-deep); }
+	.project-cta-card .btn-primary { color:var(--blue-deep); background:var(--gold); }
+	@media(max-width:860px){
+		.project-hero { padding:64px 0; }
+		.project-hero-grid,.project-content-grid,.scope-card,.project-cta-card { grid-template-columns:1fr; }
+		.project-content-grid,.scope-card { gap:34px; }
+		.project-copy { padding-top:0; }
+		.feature-cards { grid-template-columns:1fr; }
+		.desktop-shot figcaption { grid-template-columns:1fr; gap:5px; }
+		.window-frame img { width:100%; }
+		.project-cta-card { gap:28px; padding:30px 24px; }
+	}
+</style>
